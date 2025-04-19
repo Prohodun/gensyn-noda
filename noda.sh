@@ -46,6 +46,10 @@ show_apikey() {
     cat $NODE_DIR/modal-login/temp-data/userApiKey.json
 }
 
+attach_screen() {
+    screen -r gensynnode
+}
+
 while true; do
     echo -e "\n======= Меню керування Gensyn ======="
     echo "1. 🚀 Запуск ноди"
@@ -56,6 +60,7 @@ while true; do
     echo "6. 👤 Показати userData"
     echo "7. 🔑 Показати API ключ"
     echo "8. 👋 Вийти"
+    echo "9. 🖥️ Увійти в screen з нодою"
     read -p "Вибери опцію: " choice
 
     case $choice in
@@ -67,6 +72,7 @@ while true; do
         6) show_userdata ;;
         7) show_apikey ;;
         8) echo "Пака! 👋"; exit ;;
+        9) attach_screen ;;
         *) echo "Невірний вибір!" ;;
     esac
 done
